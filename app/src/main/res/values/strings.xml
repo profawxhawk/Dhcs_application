@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Dhcs_application</string>
+    <string name="welcome">Welcome!</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="todo">TODO</string>
+    <string name="first_name">First name*</string>
+    <string name="or">OR</string>
+    <string name="last_name">Last name*</string>
+    <string name="confirm_password">confirm password*</string>
+    <string name="email">Email*</string>
+    <string name="enter_password">Enter Password*</string>
+    <string name="you_re_just_one_spet_away_from_signing_up">You\'re just one spet away from signing up</string>
+    <string name="mobile">Mobile*</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="please_enter_your_details">Please enter your details</string>
+    <string name="already_registered">Already Registered?</string>
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1006905517729",
+    "firebase_url": "https://dhcs-5ba8f.firebaseio.com",
+    "project_id": "dhcs-5ba8f",
+    "storage_bucket": "dhcs-5ba8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006905517729:android:b3dff37f7ccc6dbe94b2e0",
+        "android_client_info": {
+          "package_name": "com.example.dhcs_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006905517729-tk2qavsm65f1a81ufot1aqr0p8b8vloa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaq2FkazbelC1IoBRdze9fpNP9UQnUyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006905517729-tk2qavsm65f1a81ufot1aqr0p8b8vloa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
