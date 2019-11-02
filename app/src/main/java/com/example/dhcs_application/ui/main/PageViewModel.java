@@ -1,4 +1,4 @@
-package com.example.tabs4.ui.main;
+package com.example.dhcs_application.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
