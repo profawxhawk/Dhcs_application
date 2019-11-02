@@ -34,10 +34,10 @@ public class profilepage extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                if(user==null){
-                    System.out.println("\n\nuser=null\n\n");
-                    return;
-                }
+//                if(user==null){
+//                    System.out.println("\n\nuser=null\n\n");
+//                    return;
+//                }
                 String str = user.firstname;
                 welcome.setText(str);
             }
