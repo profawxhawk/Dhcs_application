@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText email_id;
@@ -25,11 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
     EditText lastname;
     EditText password1;
     Button signupbutton;
-    TextView loginview;
     EditText mobile;
+    TextView loginview;
     FirebaseAuth firebaseAuth;
+    DatabaseReference dbusers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         password2=(EditText)findViewById(R.id.password2);
@@ -59,12 +63,12 @@ public class RegisterActivity extends AppCompatActivity {
                 return 1;
             }
             private void register_user(){
-                String email=email_id.getText().toString().trim();
-                String pass1=password1.getText().toString().trim();
+                final String email=email_id.getText().toString().trim();
+                final String pass1=password1.getText().toString().trim();
                 String pass2=password2.getText().toString().trim();
-                String first=firstname.getText().toString().trim();
-                String last=lastname.getText().toString().trim();
-                String mobile_number=mobile.getText().toString().trim();
+                final String first=firstname.getText().toString().trim();
+                final String last=lastname.getText().toString().trim();
+                final String mobile_number=mobile.getText().toString().trim();
 
                 int val=check_empty(email,"email_id");
                 if(val==0){
@@ -99,18 +103,20 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                dbusers = FirebaseDatabase.getInstance().getReference("users");
                                 Toast.makeText(getApplicationContext(),"User registration successfull",Toast.LENGTH_SHORT).show();
                                 finish();
+                                String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                User user=new User(user_id,email,first,last,mobile_number);
+                                dbusers.child(user_id).setValue(user);
                                 Intent profilepageIntent = new Intent(getApplicationContext(),profilepage.class);
                                 startActivity(profilepageIntent);
-
                             }
                             else{
                                 Toast.makeText(getApplicationContext(),"User registration not successfull, try again",Toast.LENGTH_SHORT).show();
                             }
                     }
                 });
-
 
             }
             @Override
