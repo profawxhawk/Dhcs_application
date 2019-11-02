@@ -1,4 +1,4 @@
-package com.example.tabs4.ui.main;
+package com.example.dhcs_application.ui.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,7 +21,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private com.example.tabs4.ui.main.PageViewModel pageViewModel;
+    private com.example.dhcs_application.ui.main.PageViewModel pageViewModel;
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -34,7 +34,7 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageViewModel = ViewModelProviders.of(this).get(com.example.tabs4.ui.main.PageViewModel.class);
+        pageViewModel = ViewModelProviders.of(this).get(com.example.dhcs_application.ui.main.PageViewModel.class);
         int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
