@@ -18,7 +18,7 @@ public class arun_Frag1 extends Fragment {
         View view= inflater.inflate(R.layout.arun_frag1_layout,container,false);
         Spinner spinner = view.findViewById(R.id.planets_spinner);
         String[] items = new String[]{"Rahul","Lesson 1 : 9/10","Lesson 2 : 10/10","Lesson 3 : 8/10"};
-        com.example.myapplication.CustomAdapter adapter = new com.example.myapplication.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items,0);
+        com.example.dhcs_application.CustomAdapter adapter = new com.example.dhcs_application.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items,0);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setDropDownVerticalOffset(100);
@@ -26,7 +26,7 @@ public class arun_Frag1 extends Fragment {
         //no. 2
         Spinner spinner1 = view.findViewById(R.id.planets_spinner1);
         String[] items1 = new String[]{"Sachin","Lesson 1 : 9/10","Lesson 2 : 10/10","Lesson 3 : 8/10"};
-        com.example.myapplication.CustomAdapter adapter1 = new com.example.myapplication.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items1,0);
+        com.example.dhcs_application.CustomAdapter adapter1 = new com.example.dhcs_application.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items1,0);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
         spinner1.setDropDownVerticalOffset(100);
@@ -34,7 +34,7 @@ public class arun_Frag1 extends Fragment {
         //no.3
         Spinner spinner2 = view.findViewById(R.id.planets_spinner2);
         String[] items2 = new String[]{"Virat","Lesson 1 : 9/10","Lesson 2 : 10/10","Lesson 3 : 8/10"};
-        com.example.myapplication.CustomAdapter adapter2 = new com.example.myapplication.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items2,0);
+        com.example.dhcs_application.CustomAdapter adapter2 = new com.example.dhcs_application.CustomAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items2,0);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
         spinner2.setDropDownVerticalOffset(100);

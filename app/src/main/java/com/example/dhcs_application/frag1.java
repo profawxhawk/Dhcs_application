@@ -34,6 +34,12 @@ import android.widget.TextView;
 
 public class frag1 extends Fragment {
 
+    int id_assigning;
+
+    public frag1(){
+        id_assigning=0;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,7 +60,8 @@ public class frag1 extends Fragment {
                 LinearLayout ll = new LinearLayout(view.getContext());
                 ll.setOrientation(LinearLayout.HORIZONTAL);
                 final Button btn1 = new Button(view.getContext());
-                btn1.setId(1+1);
+                btn1.setId(id_assigning);
+                id_assigning++;
                 String s=getActivity().getIntent().getStringExtra("EdiTtEXTvALUE");
 
 
@@ -76,14 +83,16 @@ public class frag1 extends Fragment {
                 btn1.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.i("TAG", "index :" + index);
-                        Toast.makeText(getActivity().getApplicationContext(),"Clicked Button Index :" + index,Toast.LENGTH_LONG).show();
+                        Intent lessonIntent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
+                        startActivity(lessonIntent);
                     }
                 });
                 System.out.println("\n\nhola4\n\n");
             }
         });
         System.out.println("\n\nhola\n\n");
+
+
 
 //        return inflater.inflate(R.layout.frag1_layout, container, false);
         FloatingActionButton b= rootView.findViewById(R.id.createpagebtn);
