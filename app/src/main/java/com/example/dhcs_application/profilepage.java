@@ -28,16 +28,17 @@ public class profilepage extends AppCompatActivity {
         final TextView welcome=(TextView)findViewById(R.id.Welcome_text);
         Button explore =(Button)findViewById(R.id.explore);
         Button view_courses = (Button)findViewById(R.id.view);
+        Button create_courses=(Button)findViewById(R.id.create);
         dbusers = FirebaseDatabase.getInstance().getReference("users");
         String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         dbusers.child(user_id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-//                if(user==null){
-//                    System.out.println("\n\nuser=null\n\n");
-//                    return;
-//                }
+                if(user==null){
+                    System.out.println("\n\nuser=null\n\n");
+                    return;
+                }
                 String str = user.firstname;
                 welcome.setText(str);
             }
@@ -57,6 +58,13 @@ public class profilepage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myskillspageIntent = new Intent(profilepage.this,myskillspage.class);
                 startActivity(myskillspageIntent);
+            }
+        });
+        create_courses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent create_course_Intent = new Intent(profilepage.this,create_course.class);
+                startActivity(create_course_Intent);
             }
         });
     }
