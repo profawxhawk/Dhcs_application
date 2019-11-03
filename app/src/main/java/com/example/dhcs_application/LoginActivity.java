@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(getApplicationContext(),"User login successfull",Toast.LENGTH_SHORT).show();
                             finish();
-                            Intent coursepageIntent = new Intent(LoginActivity.this, myskillspage.class);
+                            Intent coursepageIntent = new Intent(LoginActivity.this, profilepage.class);
                             startActivity(coursepageIntent);
                         }
                         else{

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.dhcs_application;
 
 import android.content.Context;
 import android.view.View;
