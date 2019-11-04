@@ -63,7 +63,7 @@ class Lesson{
 
 class Course{
 
-    static int count = 1;
+    public static int courseCount = 1;
     public String courseID;
     public String name;
     public int instructorID;
@@ -78,24 +78,24 @@ class Course{
     ArrayList<Integer> Enrolled_Users_id;
 
     public Course(String name, int instructorID, double weeklyFees, String description, double lat, double lon) {
-        this.courseID = count+"";
+        this.courseID = courseCount + "";
         this.name = name;
         this.instructorID = instructorID;
         this.weeklyFees = weeklyFees;
         this.description = description;
         this.lat = lat;
         this.lon = lon;
-        count+=1;
+        courseCount +=1;
     }
 
     public Course(){}
 
-    public static int getCount() {
-        return count;
+    public static int getCourseCount() {
+        return courseCount;
     }
 
-    public static void setCount(int count) {
-        Course.count = count;
+    public static void setCourseCount(int count) {
+        Course.courseCount = count;
     }
 
     public String getCourseID() {

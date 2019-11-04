@@ -29,13 +29,12 @@ public class create_course extends AppCompatActivity {
 
     //Check Resume/Picture/Lecture Upload
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_course);
         final EditText nameText1 = (EditText) findViewById(R.id.nameText);
-        EditText weeklyFeesText1 =  (EditText) findViewById(R.id.weeklyFeesText);
+        final EditText weeklyFeesText1 =  (EditText) findViewById(R.id.weeklyFeesText);
         final EditText descriptionText1 = (EditText) findViewById(R.id.descriptionText);
         Button submitButton1 = (Button) findViewById(R.id.submitButton);
 
@@ -58,16 +57,16 @@ public class create_course extends AppCompatActivity {
 
             private void registerCourse(){
                 final String nameText = nameText1.getText().toString().trim();
-                final String weeklyFeesText =  descriptionText1.getText().toString().trim();
+                final String weeklyFeesText =  weeklyFeesText1.getText().toString().trim();
                 final String descriptionText = descriptionText1.getText().toString().trim();
                 dbCourses = FirebaseDatabase.getInstance().getReference("Courses");
 
-                String nameValue = nameText.toString().trim();
+                String nameValue = nameText.trim();
                 double feesValue = 0;
                 try {
-                    System.out.println("Entering try");
+                    System.out.println("Entering try :)");
                     feesValue = Double.parseDouble(weeklyFeesText.toString().trim());
-                    System.out.println("\n\nhere is fees"+feesValue+"\n\n");
+                    System.out.println("\n\n Here is the Fees"+feesValue+"\n\n");
                 }
                 catch(Exception e){
                     System.out.println(e.getMessage());
@@ -78,20 +77,39 @@ public class create_course extends AppCompatActivity {
 
                 //How to get course_id????
 
+                /*
+                dbCourses.child(course.courseID).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Course course = dataSnapshot.getValue(Course.class);
+                        if(course == null){
+                            System.out.println("\n\nuser=null\n\n");
+                            return;
+                        }
+                        Toast.makeText(getApplicationContext(),"Course Creation Successful",Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+                */
+
+
                 int instructorID = 999;
                 double latitude = 0.000;
                 double longitude = 1.1111;
 
 
                 Course course = new Course(nameValue, instructorID, feesValue, descriptionValue, latitude, longitude);
-
+                dbCourses.push().setValue(course.courseID);
                 dbCourses.child(course.courseID).setValue(course);
                 dbCourses = FirebaseDatabase.getInstance().getReference("Courses");
                 dbCourses.child(course.courseID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Course course = dataSnapshot.getValue(Course.class);
-                        if(course==null){
+                        if(course == null){
                             System.out.println("\n\nuser=null\n\n");
                             return;
                         }
