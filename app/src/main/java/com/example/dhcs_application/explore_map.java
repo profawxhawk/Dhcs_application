@@ -1,17 +1,24 @@
 package com.example.dhcs_application;
 import androidx.fragment.app.FragmentActivity;
-
+import com.google.gson.Gson;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,8 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-public class explore_map extends FragmentActivity implements OnMapReadyCallback {
+class MarkerInfo {
+    public String title;
+    public String subtitle;
+    public Course course;
+}
+public class explore_map extends FragmentActivity implements OnMapReadyCallback,
+        GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     DatabaseReference dbcourses;
@@ -61,45 +73,58 @@ public class explore_map extends FragmentActivity implements OnMapReadyCallback 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setInfoWindowAdapter(new InfoWindowCustom(this));
+        mMap.setOnInfoWindowClickListener(this);
         dbcourses = FirebaseDatabase.getInstance().getReference("Courses");
         dbcourses.addValueEventListener(new ValueEventListener() {
             @Override
+
             public void onDataChange(DataSnapshot dataSnapshot) {
+//                setContentView(R.layout.popup);
+//                double price_min=Double.parseDouble(((EditText)findViewById(R.id.price_min)).getText().toString());
+//                double price_max=Double.parseDouble(((EditText)findViewById(R.id.price_max)).getText().toString());
+//                double distance_min=Double.parseDouble(((EditText)findViewById(R.id.distance_min)).getText().toString());
+//                double distance_max=Double.parseDouble(((EditText)findViewById(R.id.distance_max)).getText().toString());
+//                double ratings_min=Double.parseDouble(((EditText)findViewById(R.id.ratings_min)).getText().toString());
+//                double ratings_max=Double.parseDouble(((EditText)findViewById(R.id.ratings_max)).getText().toString());
+//                setContentView(R.layout.activity_explore_map);
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     Course currCourse = ds.getValue(Course.class);
-                    double x = currCourse.getLat();
-                    double y = currCourse.getLon();
-                    append(x,y,mMap);
+                    if(filters.getInstance()!=null) {
+                        System.out.println("The filters" + filters.getInstance().price_min );
+                        if (currCourse.weeklyFees <= filters.getInstance().price_max && currCourse.weeklyFees >= filters.getInstance().price_min) {
+                            double x = currCourse.getLat();
+                            double y = currCourse.getLon();
+                            append(x, y, mMap,currCourse);
+                        }
+                    }
                 }
 
-
-//                if(value instanceof List) {
-//                    List<Object> values = (List<Object>) value;
-//                    for(int i=0;i<values.size();i++) {
-////                        Log.d("stats", values.get(i).toString());
-//                        if (values.get(i) != null) {
-////                            append(values.get(i).Lat, values.get(i).Log, mMap);
-//                        }
-//                    }
-//
-//
-//                };
 
             }
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-//        for (int i=0;i<c2.size();i++){
-//            if (c2.get(i)!=null) {
-//                Course c=c2.get(i);
-
-//            }
-//        }
     }
-    public void append(double lat,double log,GoogleMap googleMap){
-        LatLng sydney = new LatLng(lat,log);
-        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+    public void append(double lat,double log,GoogleMap googleMap,Course currCourse){
+        LatLng pos = new LatLng(lat,log);
+        String description = "Description : "+currCourse.description+"\n"+"Weekly Fees : "+currCourse.weeklyFees+"\n";
+        MarkerInfo m1info=new MarkerInfo();
+        m1info.course=currCourse;
+        m1info.title="Name: "+currCourse.name+'\n';
+        m1info.subtitle=description;
+        Gson gson = new Gson();
+        String markerInfoString = gson.toJson(m1info);
+        Marker m=googleMap.addMarker(new MarkerOptions().position(pos).snippet(markerInfoString));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
+    }
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Gson gson = new Gson();
+        final MarkerInfo aMarkerInfo = gson.fromJson(marker.getSnippet(), MarkerInfo.class);
+        Toast.makeText(this, "Welcome Sucka"+aMarkerInfo.course.name,
+                Toast.LENGTH_SHORT).show();
     }
 }
