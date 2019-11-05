@@ -1,7 +1,11 @@
 package com.example.dhcs_application;
 import androidx.fragment.app.FragmentActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,6 +32,16 @@ public class explore_map extends FragmentActivity implements OnMapReadyCallback 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore_map);
+        Button filter=(Button)findViewById(R.id.filter);
+        filter.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(explore_map.this,filter_popup.class));
+            }
+
+
+        });
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -48,23 +62,28 @@ public class explore_map extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         dbcourses = FirebaseDatabase.getInstance().getReference("Courses");
-        Course c1=new Course("bpro", 1,1000,"hi",3-33.852,151.211);
-        dbcourses.child("1").setValue(c1);
         dbcourses.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Object value = dataSnapshot.getValue();
-                if(value instanceof List) {
-                    List<Object> values = (List<Object>) value;
-                    for(int i=0;i<values.size();i++) {
-                        Log.d("stats", values.get(i).toString());
-                        if (values.get(i) != null) {
-//                            append(values.get(i).Lat, values.get(i).Log, mMap);
-                        }
-                    }
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
+                    Course currCourse = ds.getValue(Course.class);
+                    double x = currCourse.getLat();
+                    double y = currCourse.getLon();
+                    append(x,y,mMap);
+                }
 
 
-                };
+//                if(value instanceof List) {
+//                    List<Object> values = (List<Object>) value;
+//                    for(int i=0;i<values.size();i++) {
+////                        Log.d("stats", values.get(i).toString());
+//                        if (values.get(i) != null) {
+////                            append(values.get(i).Lat, values.get(i).Log, mMap);
+//                        }
+//                    }
+//
+//
+//                };
 
             }
             public void onCancelled(DatabaseError databaseError) {

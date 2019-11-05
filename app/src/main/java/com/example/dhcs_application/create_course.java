@@ -9,16 +9,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class create_course extends AppCompatActivity {
@@ -26,6 +31,8 @@ public class create_course extends AppCompatActivity {
     FirebaseDatabase firebaseDB;
     DatabaseReference dbCourses;
     int numCourse;
+    //ArrayList<Integer> currID = new ArrayList<>();
+    int currID = 0;
 
     //Check Resume/Picture/Lecture Upload
 
@@ -59,14 +66,13 @@ public class create_course extends AppCompatActivity {
                 final String nameText = nameText1.getText().toString().trim();
                 final String weeklyFeesText =  weeklyFeesText1.getText().toString().trim();
                 final String descriptionText = descriptionText1.getText().toString().trim();
+
                 dbCourses = FirebaseDatabase.getInstance().getReference("Courses");
 
                 String nameValue = nameText.trim();
                 double feesValue = 0;
                 try {
-                    System.out.println("Entering try :)");
                     feesValue = Double.parseDouble(weeklyFeesText.toString().trim());
-                    System.out.println("\n\n Here is the Fees"+feesValue+"\n\n");
                 }
                 catch(Exception e){
                     System.out.println(e.getMessage());
@@ -74,54 +80,66 @@ public class create_course extends AppCompatActivity {
 
                 String descriptionValue = descriptionText.toString().trim();
 
+                Course lastCourse = new Course();
+                //final ArrayList<Course> courseList = new ArrayList<>();
 
-                //How to get course_id????
-
-                /*
-                dbCourses.child(course.courseID).addValueEventListener(new ValueEventListener() {
+                dbCourses.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Course course = dataSnapshot.getValue(Course.class);
-                        if(course == null){
-                            System.out.println("\n\nuser=null\n\n");
-                            return;
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot ds: dataSnapshot.getChildren()){
+                            try {
+//                                //courseList.add(ds.getValue(Course.class));
+                                currID = (Integer.parseInt(ds.getValue(Course.class).courseID));
+                                System.out.println("woahwoahwoahwoahgfhdghfdgd    " + ds.getValue(Course.class).courseID);
+                            }
+                            catch(Exception e){
+
+                            }
+
+
                         }
+
+                        int instructorID = 999;
+                        double latitude = 0.000;
+                        double longitude = 1.1111;
+                        double feesValue = Double.parseDouble(weeklyFeesText);
+                        Course course = new Course(nameText, instructorID, feesValue, descriptionText, latitude, longitude);
+                        System.out.println("CURRRRRR IDDDDDD " + currID);
+                        course.courseID = "" + (currID + 1);
+                        dbCourses.child(course.courseID).setValue(course);
+                        dbCourses = FirebaseDatabase.getInstance().getReference("Courses");
+
                         Toast.makeText(getApplicationContext(),"Course Creation Successful",Toast.LENGTH_SHORT).show();
                         finish();
+                        Intent profilePageIntent = new Intent(create_course.this,profilepage.class);
+                        startActivity(profilePageIntent);
+
                     }
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.getCode());
-                    }
-                });
-                */
 
-
-                int instructorID = 999;
-                double latitude = 0.000;
-                double longitude = 1.1111;
-
-
-                Course course = new Course(nameValue, instructorID, feesValue, descriptionValue, latitude, longitude);
-                dbCourses.push().setValue(course.courseID);
-                dbCourses.child(course.courseID).setValue(course);
-                dbCourses = FirebaseDatabase.getInstance().getReference("Courses");
-                dbCourses.child(course.courseID).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Course course = dataSnapshot.getValue(Course.class);
-                        if(course == null){
-                            System.out.println("\n\nuser=null\n\n");
-                            return;
-                        }
-                        Toast.makeText(getApplicationContext(),"Course Creation Successful",Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.getCode());
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
                     }
                 });
 
-                //ADD Intent here
+
+//                dbCourses.child(course.courseID).addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        Course course = dataSnapshot.getValue(Course.class);
+//                        if(course == null){
+//                            System.out.println("\n\nuser=null\n\n");
+//                            return;
+//                        }
+//                        Toast.makeText(getApplicationContext(),"Course Creation Successful",Toast.LENGTH_SHORT).show();
+//                        finish();
+//                    }
+//                    public void onCancelled(DatabaseError databaseError) {
+//                        System.out.println("The read failed: " + databaseError.getCode());
+//                    }
+//                });
+
+
 
             }
 

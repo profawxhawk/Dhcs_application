@@ -24,6 +24,7 @@ class User{
         this.mobile=moblile;
         Teaching_course_list=new ArrayList<>();
         Enrolled_course_list=new ArrayList<>();
+
     }
     public User() {}
     /* getter and setters */
@@ -63,7 +64,6 @@ class Lesson{
 
 class Course{
 
-    public static int courseCount = 1;
     public String courseID;
     public String name;
     public int instructorID;
@@ -75,28 +75,25 @@ class Course{
     //    Video Link
     //    Resume
     ArrayList<Integer> Lesson_list_id;
-    ArrayList<Integer> Enrolled_Users_id;
+    ArrayList<Integer> Enrolled_Users_id,grades;
+    ArrayList<String>  Enrolled_Users_name,Lesson_names;
 
     public Course(String name, int instructorID, double weeklyFees, String description, double lat, double lon) {
-        this.courseID = courseCount + "";
         this.name = name;
         this.instructorID = instructorID;
         this.weeklyFees = weeklyFees;
         this.description = description;
         this.lat = lat;
         this.lon = lon;
-        courseCount +=1;
+        this.Lesson_list_id = new ArrayList<>();
+        this.Enrolled_Users_id = new ArrayList<>();
+        this.Enrolled_Users_name = new ArrayList<>();
+        this.grades = new ArrayList<>();
+        this.Lesson_names = new ArrayList<>();
     }
 
     public Course(){}
 
-    public static int getCourseCount() {
-        return courseCount;
-    }
-
-    public static void setCourseCount(int count) {
-        Course.courseCount = count;
-    }
 
     public String getCourseID() {
         return courseID;
