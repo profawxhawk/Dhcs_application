@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!--    <color name="colorPrimary">#40a0ff</color>-->
-    <color name="colorPrimary">#FF025D</color>
+    <color name="colorPrimary">#2BB1D3</color>
     <color name="colorPrimaryDark">#06408A</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#ACDDEB</color>
     <color name="white_nigga">#ffffff</color>
     <color name="dakota_grey">#676767</color>
-    <color name="warmest_color_blue">#1ca9df</color>
+    <color name="BUTTON_COLOUR">#768B8B</color>
+    <color name="heading_text">#6E6F70</color>
+    <color name="divider_colour">#3677BB</color>
 </resources>

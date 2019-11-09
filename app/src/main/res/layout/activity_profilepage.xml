@@ -4,39 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".myskillspage">
 
     <Button
         android:id="@+id/view"
-        android:layout_width="166dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginBottom="300dp"
+        android:background="@color/BUTTON_COLOUR"
         android:text="View Courses"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/explore"
-        android:layout_width="166dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="110dp"
+        android:layout_width="209dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginBottom="376dp"
+        android:background="@color/BUTTON_COLOUR"
         android:text="Explore Courses"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="418dp"
         android:layout_height="53dp"
-        android:background="#5FB0DA"
+        android:background="#FFFFFF"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,8 +55,8 @@
         android:layout_width="137dp"
         android:layout_height="35dp"
         android:fontFamily="sans-serif-light"
-        android:text="Skill - Station"
-        android:textColor="#FFFFFF"
+        android:text="Home Page"
+        android:textColor="#6E6F70"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar2"
@@ -59,56 +64,61 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="224dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="600dp"
-        android:text="HomePage"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.614" />
-
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginBottom="520dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="54dp"
+        android:background="@color/divider_colour"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/create"
-        android:layout_width="166dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="212dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginBottom="220dp"
+        android:background="@color/BUTTON_COLOUR"
         android:text="Create Courses"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="580dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="214dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:layout_marginBottom="143dp"
+        android:background="@color/BUTTON_COLOUR"
+        android:text="LOGOUT"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

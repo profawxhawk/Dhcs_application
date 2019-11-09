@@ -31,26 +31,49 @@ class User{
 }
 
 class Lesson{
-    private String title,time,content;
-
-    public Lesson() {
+    public int lesson_id;
+    public ArrayList<String>grades,user_name;
+    public String name,content;
+    public Lesson(){
 
     }
-
-    public String getTitle() {
-        return title;
+    public Lesson(int lessonid,String name,String content) {
+        this.lesson_id = lessonid;
+        this.grades = new ArrayList<>();
+        this.user_name = new ArrayList<>();
+        this.name = name;this.content=content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getLesson_id() {
+        return lesson_id;
     }
 
-    public String getTime() {
-        return time;
+    public void setLesson_id(int lesson_id) {
+        this.lesson_id = lesson_id;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public ArrayList<String> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(ArrayList<String> grades) {
+        this.grades = grades;
+    }
+
+    public ArrayList<String> getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(ArrayList<String> user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContent() {

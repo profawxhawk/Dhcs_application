@@ -52,10 +52,14 @@
         <activity android:name=".profilepage" />
         <activity android:name=".myskillspage" />
         <activity android:name=".create_course" />
+        <activity android:name=".create_lesson" />
+        <activity android:name=".join_course" />
         <activity android:name=".MainActivity" />
         <activity android:name=".explore_map" /> <!-- <activity android:name=".profilepage" /> -->
+        <activity android:name=".edit_grades"/>
         <activity android:name=".LoginActivity">
-            <intent-filter>
+
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

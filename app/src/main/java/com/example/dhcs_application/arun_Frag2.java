@@ -43,7 +43,6 @@ public class arun_Frag2 extends Fragment {
         DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Courses").child("1").child("announcement");
         final LinearLayout ll = (LinearLayout)view.findViewById(R.id.lininhouse);
         final Context context = this.getContext();
-
         reff.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

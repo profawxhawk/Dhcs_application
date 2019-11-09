@@ -11,38 +11,40 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="326dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="42dp">
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="328dp"
+            android:layout_width="214dp"
+            android:layout_height="45dp"
             android:background="@color/colorPrimary"
             android:text="About"
             android:textColor="@color/common_google_signin_btn_text_light_pressed"
             android:textColorHighlight="@color/colorAccent"
             android:textColorLink="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.733" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="412dp"
-            android:layout_height="54dp"
-            android:layout_marginBottom="272dp"
+            android:layout_width="215dp"
+            android:layout_height="46dp"
             android:background="@color/colorPrimary"
             android:text="Certificates"
             android:textColor="@color/common_google_signin_btn_text_light_pressed"
             android:textColorHighlight="@color/colorAccent"
             android:textColorLink="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button4" />
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.836" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -56,21 +58,20 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="414dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="34dp"
+            android:layout_width="215dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="172dp"
             android:background="@color/colorPrimary"
-            android:text="Ratings / Reviews"
+            android:text="Ratings/Reviews"
             android:textColor="@color/common_google_signin_btn_text_light_pressed"
             android:textColorHighlight="@color/colorAccent"
             android:textColorLink="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/join_button"
             android:layout_width="163dp"
             android:layout_height="50dp"
             android:layout_marginEnd="32dp"

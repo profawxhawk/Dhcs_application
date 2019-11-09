@@ -16,7 +16,7 @@
             android:id="@+id/toolbar2"
             android:layout_width="418dp"
             android:layout_height="53dp"
-            android:background="#5FB0DA"
+            android:background="#FFFFFF"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,12 +29,12 @@
             android:id="@+id/textView2"
             android:layout_width="137dp"
             android:layout_height="53dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Skill - Station"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Explore"
+            android:textColor="#6E6F70"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/toolbar2"
             app:layout_constraintStart_toStartOf="@+id/toolbar2"
@@ -43,25 +43,30 @@
     </FrameLayout>
 
 
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#7CA8A8AA" />
+
+
     <Button
         android:id="@+id/filter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="56dp"
         android:layout_gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="#B2B6B6"
+        android:gravity="center"
         android:text="Filter"
         android:textColor="#FFFFFF"
-        android:textColorLink="#00472323" />
+        android:textColorLink="#00472323"
+        android:textSize="18sp" />
 
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/map"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="624dp"
         tools:context=".ui.activity.GoogleMapActivity" />
 
 

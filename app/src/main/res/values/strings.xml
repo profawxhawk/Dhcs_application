@@ -15,8 +15,8 @@
     <string name="log_in">Log in</string>
     <string name="please_enter_your_details">Please enter your details</string>
     <string name="already_registered">Already Registered?</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Instructors</string>
+    <string name="tab_text_2">Student</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_map_location">Map</string>
