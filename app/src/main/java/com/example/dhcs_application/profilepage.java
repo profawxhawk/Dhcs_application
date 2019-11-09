@@ -30,6 +30,8 @@ public class profilepage extends AppCompatActivity {
         Button view_courses = (Button)findViewById(R.id.view);
         Button create_courses=(Button)findViewById(R.id.create);
         dbusers = FirebaseDatabase.getInstance().getReference("users");
+        lat_lng.getInstance().Lat=360;
+        lat_lng.getInstance().Lng=360;
         String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         dbusers.child(user_id).addValueEventListener(new ValueEventListener() {
             @Override

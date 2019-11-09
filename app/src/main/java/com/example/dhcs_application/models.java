@@ -66,7 +66,7 @@ class Course{
 
     public String courseID;
     public String name;
-    public int instructorID;
+    public String instructorID;
     public double weeklyFees;
     public String description;
     public double lat;
@@ -78,7 +78,7 @@ class Course{
     ArrayList<Integer> Enrolled_Users_id,grades;
     ArrayList<String>  Enrolled_Users_name,Lesson_names;
 
-    public Course(String name, int instructorID, double weeklyFees, String description, double lat, double lon) {
+    public Course(String name, String instructorID, double weeklyFees, String description, double lat, double lon) {
         this.name = name;
         this.instructorID = instructorID;
         this.weeklyFees = weeklyFees;
@@ -111,11 +111,11 @@ class Course{
         this.name = name;
     }
 
-    public int getInstructorID() {
+    public String getInstructorID() {
         return instructorID;
     }
 
-    public void setInstructorID(int instructorID) {
+    public void setInstructorID(String instructorID) {
         this.instructorID = instructorID;
     }
 
