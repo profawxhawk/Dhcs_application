@@ -78,6 +78,12 @@ public class frag1 extends Fragment {
                     btn1.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                     params.width = 1100;
                     params.height=500;
+                    if(list.get(i).name.equalsIgnoreCase("CHESS")){
+                        btn1.setBackgroundResource(R.drawable.chess4);
+                    }
+                    else{
+                        btn1.setBackgroundResource(R.drawable.football);
+                    }
                     btn1.setLayoutParams(params);
                     ll.addView(btn1);
                     lm1.addView(ll);

@@ -124,8 +124,7 @@ public class explore_map extends FragmentActivity implements OnMapReadyCallback,
     public void onInfoWindowClick(Marker marker) {
         Gson gson = new Gson();
         final MarkerInfo aMarkerInfo = gson.fromJson(marker.getSnippet(), MarkerInfo.class);
-        Toast.makeText(this, "Welcome Sucka"+aMarkerInfo.course.name,
-                Toast.LENGTH_SHORT).show();
+
         Intent joincourse_intent = new Intent(explore_map.this,join_course.class);
         joincourse_intent.putExtra("EXTRA_SESSION_ID", aMarkerInfo.course.courseID);
         startActivity(joincourse_intent);

@@ -8,18 +8,18 @@
     android:layout_height="match_parent"
     android:background="@color/white_nigga">
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:text="Tap my ass!"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:layout_constraintDown_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:text="Tap my ass!"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/constraintLayout"-->
+<!--        tools:layout_constraintDown_creator="1"-->
+<!--        tools:layout_constraintLeft_creator="1"-->
+<!--        tools:layout_constraintRight_creator="1"-->
+<!--        tools:layout_constraintTop_creator="1" />-->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

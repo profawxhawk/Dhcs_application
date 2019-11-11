@@ -17,6 +17,9 @@
     <string name="already_registered">Already Registered?</string>
     <string name="tab_text_1">Instructors</string>
     <string name="tab_text_2">Student</string>
+    <string name="instructor_tab1">Lessons</string>
+    <string name="instructor_tab2">Announcements</string>
+    <string name="instructor_tab3">Progress</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_map_location">Map</string>
