@@ -89,8 +89,9 @@ public class arun_Frag1 extends Fragment {
                     btn1.setId(i);
                     btn1.setText(list.get(i).name);
                     btn1.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+//                    btn1.setBackgroundResource(R.drawable.football);
                     params.width = 1100;
-                    params.height=250;
+                    params.height=400;
                     btn1.setLayoutParams(params);
                     ll.addView(btn1);
                     lm1.addView(ll);
